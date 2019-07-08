@@ -5,10 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "pm2": "pm2 start vue-cli-service serve"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "element-ui": "^2.10.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
