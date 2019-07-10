@@ -1,11 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router/index'
+import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import './components' // 全局组件自动注册
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')

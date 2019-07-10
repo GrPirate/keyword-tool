@@ -1,4 +1,4 @@
-# vue-cli3-spider
+# vue-cli3-project
 
 ## Project setup
 ```
@@ -23,6 +23,11 @@ npm run test
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Run your unit tests
+```
+npm run test:unit
 ```
 
 ### Customize configuration
