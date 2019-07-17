@@ -11,25 +11,8 @@
 </template>
 
 <style lang="scss">
-@font-face{
-  font-family: 'Nemesis-Grant1';
-  src: url('./assets/font/SourceHanSerifSC-Regular.otf');
-}
-@font-face{
-  font-family: 'Nemesis-Grant2';
-  src: url('./assets/font/SourceHanSerifSC-ExtraLight.otf');
-}
-@font-face{
-  font-family: 'Nemesis-Grant3';
-  src: url('./assets/font/SourceHanSerifSC-Light.otf');
-}
-@font-face{
-  font-family: 'Nemesis-Grant4';
-  src: url('./assets/font/SourceHanSerifSC-Medium.otf');
-}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  font-family: 'Nemesis-Grant4';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
