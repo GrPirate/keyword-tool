@@ -4,6 +4,7 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? '/'
     : '/',
+  productionSourceMap: false,
   chainWebpack: config => {
     // 这里是对环境的配置，不同环境对应不同的BASE_URL，以便axios的请求地址不同
     config.plugin('define').tap(args => {
