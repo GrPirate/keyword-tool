@@ -71,7 +71,6 @@ export default {
         drawOutOfBound: false,
         data: []
       }
-      debugger
       item.data = this.results.map(v => {
         return {
           name: v.name,

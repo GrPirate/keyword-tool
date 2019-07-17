@@ -133,6 +133,7 @@ export default {
     handleData () {
       this.total = 0
       this.resultsHtml = []
+      this.results = []
       // 拆分对话
       const arr = this.textarea.split('\n')
       const reg = new RegExp(this.keyWord, 'g')
