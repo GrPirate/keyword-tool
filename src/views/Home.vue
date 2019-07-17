@@ -35,7 +35,7 @@
                 >开始</el-button>
             </el-col>
           </el-row>
-          <el-row>
+          <el-row v-if="false">
             <el-col :span="24" class="key-tag">
               {{"常用关键词："}}
               <el-tag
@@ -88,6 +88,8 @@
 </template>
 
 <script>
+import { throttle } from '../utils'
+import { update } from '../api/words'
 const KEYWORDS = 'KEY_WORDS'
 export default {
   name: 'home',
@@ -98,7 +100,8 @@ export default {
       results: [],
       resultsHtml: [],
       total: 0,
-      watched: 1
+      watched: 1,
+      clickEvent: null
     }
   },
   computed: {
@@ -125,7 +128,7 @@ export default {
       // 存储关键词
       this.setKeyWordsStorg(this.keyWord)
       // 开始处理
-      this.handleData()
+      this.clickEvent()
     },
     handleData () {
       this.total = 0
@@ -134,12 +137,19 @@ export default {
       const arr = this.textarea.split('\n')
       const reg = new RegExp(this.keyWord, 'g')
       // 筛选含有关键词的对话
-      this.results = arr.filter(item => reg.test(item))
-      this.results.forEach(item => {
-        this.total += item.match(reg).length
-        const temp = item.replace(reg, '<span>$&</span>')
-        this.resultsHtml.push(temp)
+      arr.forEach(v => {
+        if (reg.test(v)) {
+          this.results.push(v)
+          this.total += v.match(reg).length
+          const temp = v.replace(reg, '<span>$&</span>')
+          this.resultsHtml.push(temp)
+        }
       })
+      this.$message({
+        message: '处理成功',
+        type: 'success'
+      })
+      update(this.keyWord).then(res => console.log(res)).catch(err => console.error(err))
     },
     setKeyWordsStorg (keyword) {
       const keywordObj = {
@@ -160,15 +170,18 @@ export default {
     handleClick (tag) {
       this.keyWord = tag.name
       this.setKeyWordsStorg(tag.name)
-      this.handleData()
+      this.clickEvent()
     }
+  },
+  mounted () {
+    this.clickEvent = throttle(this.handleData, 1500)
   }
 }
 </script>
 
 <style lang="scss">
 .wrap {
-  width: 60%;
+  width: 50%;
   min-width: 900px;
   margin: 0 auto;
 }
