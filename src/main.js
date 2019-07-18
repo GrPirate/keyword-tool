@@ -18,7 +18,7 @@ import {
   Button
 } from 'element-ui'
 
-Vue.use(Message)
+Vue.component(Message.name, Message)
 Vue.use(Container)
 Vue.use(Header)
 Vue.use(Main)
