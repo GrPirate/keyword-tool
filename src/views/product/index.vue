@@ -3,7 +3,7 @@
 </template>
 
 <script>
-// import echarts from 'echarts'
+import echarts from 'echarts'
 import 'echarts-wordcloud'
 import { getData } from '../../api/words'
 let myChart
@@ -92,7 +92,6 @@ export default {
     }
   },
   mounted () {
-    /* eslint-disable */
     myChart = echarts.init(this.$refs.chart, 'vintage')
     this.getWords()
       .then(() => {
