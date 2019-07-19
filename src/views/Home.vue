@@ -150,7 +150,7 @@ export default {
         message: '处理成功',
         type: 'success'
       })
-      update(this.keyWord).then(res => console.log(res)).catch(err => console.error(err))
+      update(this.keyWord, this.total, this.paramTotal).then(res => console.log(res)).catch(err => console.error(err))
     },
     setKeyWordsStorg (keyword) {
       const keywordObj = {

@@ -1,7 +1,7 @@
 import request from './index'
 
-export const update = (name) => {
-  return request.post(`/words/update`, { name })
+export const update = (name, total, params) => {
+  return request.post(`/words/update`, { name, total, params })
 }
 
 export const getData = () => {
